@@ -4,40 +4,7 @@
   <title>Blocks' Page</title>
 </head>
 <body>
-  <h1 style="text-align: center;">Interface de Blocks</h1>
-  <div id="workspace">
-    <div class="block" style="top: 50px; left: 50px;">Block 1</div>
-    <div class="block" style="top: 150px; left: 200px;">Block 2</div>
-    <div class="block" style="top: 300px; left: 100px;">Block 3</div>
-  </div>
-
   <script>
-    const blocks = document.querySelectorAll('.block');
-    let activeBlock = null;
-    let offsetX = 0;
-    let offsetY = 0;
-
-    blocks.forEach(block => {
-      block.addEventListener('mousedown', (e) => {
-        activeBlock = e.target;
-        offsetX = e.clientX - activeBlock.getBoundingClientRect().left;
-        offsetY = e.clientY - activeBlock.getBoundingClientRect().top;
-        activeBlock.style.cursor = 'grabbing';
-      });
-
-      document.addEventListener('mousemove', (e) => {
-        if (!activeBlock) return;
-        activeBlock.style.left = `${e.clientX - offsetX}px`;
-        activeBlock.style.top = `${e.clientY - offsetY}px`;
-      });
-
-      document.addEventListener('mouseup', () => {
-        if (activeBlock) {
-          activeBlock.style.cursor = 'grab';
-        }
-        activeBlock = null;
-      });
-    });
   </script>
 </body>
 </html>
